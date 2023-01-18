@@ -138,6 +138,11 @@ for i in range(0, 20):
         correct_responses.append('tab')
     else:
         correct_responses.append('space')
+    #append the correct response for incongruent stimuli to the correct responses list
+    if stim in incongruent:
+        correct_responses_incongruent.append('space')
+    else:
+        correct_responses_incongruent.append('tab')   
     #append the response time for congruent stimuli to the response time list
     if stim in congruent: 
         response_time_congruent.append(rt)
@@ -185,7 +190,7 @@ for i in range(0, 20):
     response_time.append(rt)
     #append the response to the response list
     response.append(key)
-    #append the correct response to the correct responses list
+    #append the correct response for congruent stimuli to the correct responses list
     if stim in congruent:
         correct_responses_congruent.append('tab')
     else:
@@ -227,7 +232,7 @@ correct_incongruent = correct_responses_incongruent.count('space')
 correct_total = correct_congruent + correct_incongruent
 
 #display the total correct responses for both conditions
-correct_responses_total = visual.TextStim(win, text="You got " + str(correct_total) + " out of 40 correct. \n That is " + str(correct_total/20*100) + "% correct.", color="black", height=30)
+correct_responses_total = visual.TextStim(win, text="You got " + str(correct_total) + " out of 40 correct. \n That is " + str(correct_total/40*100) + "% correct.", color="black", height=30)
 correct_responses_total.draw()
 win.flip() 
 core.wait(8)
