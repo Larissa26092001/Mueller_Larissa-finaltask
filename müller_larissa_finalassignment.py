@@ -300,3 +300,11 @@ for i in correct_responses_incongruent:
     correct_responses_incongruent.write('\n')
 correct_responses_incongruent.close()
 
+
+# GL:
+# largely, though:
+# - the stimulus definition is really inefficient, should be done in a loop
+# - save in a single file
+# really minor:
+# - timing would be nicer via the kb.keyWait timer instead of time.time()
+# - response key is unusual, more ideal e.g. "e" and "i"
