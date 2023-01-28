@@ -1,6 +1,6 @@
 #this is a stroop task  with two blocks containing of 20 trials each
 #both blocks have mixed conditions of congruent and incongruent trials but both appear equally often in a random order
-#the task is to press the key tab when the word and the color are the same and the space key when they are different
+#the task is to press  a when the word and the color are the same and l when they are different
 
 from psychopy import visual, core, event, gui, data, logging
 from psychopy.hardware import keyboard
@@ -15,12 +15,12 @@ event.globalKeys.add(key='q', modifiers=['ctrl'], func=core.quit)
 win = visual.Window([800,600], color="white", units='pix')
 
 #set the response keys
-resp = ['tab', 'space']
+resp = ['a', 'l']
 
 #setting the needed screens:
 
 #set the instruction screen
-instruction = visual.TextStim(win, text="Welcome to the Stroop Task! \nIn this task you will see a word and a color. \nYou have to press the tab key when the word and the color match and the space key when they don't match.", color="black", height=30)
+instruction = visual.TextStim(win, text="Welcome to the Stroop Task! \nIn this task you will see a word and a color. \nYou have to press the a key when the word and the color match and the l key when they don't match.", color="black", height=30)
 
 #set side-note screen 1
 side_note1 = visual.TextStim(win, text="Lay your fingers on tab and space bar to be ready.\n There are two rounds.\nthe first round starts in 5 seconds.", color="black", height=30)
@@ -80,7 +80,7 @@ for cycle in range(2):
         key = kb.waitKeys(keyList=resp)[0]
         
         #defining what correct responses are 
-        is_correct = (key.name == "tab") == (is_congruent := (stim in congruent))
+        is_correct = (key.name == "a") == (is_congruent := (stim in congruent))
         #the responses are captured and appended for the final Excel File
         responses.append((is_correct, key.rt, "congruent" if is_congruent else "incongruent"))
         
