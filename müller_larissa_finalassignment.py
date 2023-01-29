@@ -95,7 +95,7 @@ for cycle in range(2):
         win.flip()
         core.wait(5)
 
-#calculating the three different response times (total, congruent, incongruent)
+#calculating the three different response times (total, congruent, incongruent) -> t=response time, c caputures whether the presented stimuli was congruent or incongruent
 rt = [t for _, t, _ in responses]
 rt_congruent = [t for _, t, c in responses if c == "congruent"]
 rt_incongruent = [t for _, t, c in responses if c == "incongruent"]
